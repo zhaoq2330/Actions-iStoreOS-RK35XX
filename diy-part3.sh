@@ -13,6 +13,10 @@
 # enable rk3568 model adc keys
 ! grep -q 'adc-keys {' package/boot/uboot-rk35xx/src/arch/arm/dts/rk3568-easepi.dts && sed -i '/\/\ {/r $GITHUB_WORKSPACE/configfiles/adc-key.txt' package/boot/uboot-rk35xx/src/arch/arm/dts/rk3568-easepi.dts
 
+# 不集成联发科WiFi驱动
+getconfig=$(cat ${GITHUB_WORKSPACE}/configfiles/nowifi.txt)
+echo "$getconfig" >> .config
+
 # update ubus git HEAD
 cp -f $GITHUB_WORKSPACE/configfiles/ubus_Makefile package/system/ubus/Makefile
 
@@ -90,14 +94,6 @@ sed -i "s/192.168.1.1/192.168.200.1/g" package/base-files/files/bin/config_gener
 # 加入nsy_g68-plus初始化网络配置脚本
 cp -f $GITHUB_WORKSPACE/configfiles/swconfig_install package/base-files/files/etc/init.d/swconfig_install
 chmod 755 package/base-files/files/etc/init.d/swconfig_install
-
-
-
-
-# 集成 nsy_g68-plus WiFi驱动
-mkdir -p package/base-files/files/lib/firmware/mediatek
-cp -f $GITHUB_WORKSPACE/configfiles/mt7915_eeprom.bin package/base-files/files/lib/firmware/mediatek/mt7915_eeprom.bin
-cp -f $GITHUB_WORKSPACE/configfiles/mt7916_eeprom.bin package/base-files/files/lib/firmware/mediatek/mt7916_eeprom.bin
 
 
 
