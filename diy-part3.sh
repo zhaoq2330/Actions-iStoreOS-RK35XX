@@ -49,7 +49,7 @@ cp -f $GITHUB_WORKSPACE/configfiles/rk3568-mrkaio-m68s-plus.dts target/linux/roc
 
 
 
-#修改uhttpd配置文件，启用nginx
+# 修改uhttpd配置文件，启用nginx
 # sed -i "/.*uhttpd.*/d" .config
 # sed -i '/.*\/etc\/init.d.*/d' package/network/services/uhttpd/Makefile
 # sed -i '/.*.\/files\/uhttpd.init.*/d' package/network/services/uhttpd/Makefile
@@ -62,7 +62,7 @@ cp -a $GITHUB_WORKSPACE/configfiles/etc/* package/base-files/files/etc/
 
 
 
-#轮询检查ubus服务是否崩溃，崩溃就重启ubus服务，只针对rk3566机型，如黑豹X2和荐片TV盒子。
+# 轮询检查ubus服务是否崩溃，崩溃就重启ubus服务，只针对rk3566机型，如黑豹X2和荐片TV盒子。
 cp -f $GITHUB_WORKSPACE/configfiles/httpubus package/base-files/files/etc/init.d/httpubus
 cp -f $GITHUB_WORKSPACE/configfiles/ubus-examine.sh package/base-files/files/bin/ubus-examine.sh
 chmod 755 package/base-files/files/etc/init.d/httpubus
@@ -70,7 +70,7 @@ chmod 755 package/base-files/files/bin/ubus-examine.sh
 
 
 
-#集成黑豹X2和荐片TV盒子WiFi驱动，默认不启用WiFi
+# 集成黑豹X2和荐片TV盒子WiFi驱动，默认不启用WiFi
 cp -a $GITHUB_WORKSPACE/configfiles/firmware/* package/firmware/
 # cp -f $GITHUB_WORKSPACE/configfiles/opwifi package/base-files/files/etc/init.d/opwifi
 # chmod 755 package/base-files/files/etc/init.d/opwifi
@@ -78,7 +78,7 @@ cp -a $GITHUB_WORKSPACE/configfiles/firmware/* package/firmware/
 
 
 
-#集成CPU性能跑分脚本
+# 集成CPU性能跑分脚本
 cp -a $GITHUB_WORKSPACE/configfiles/coremark/* package/base-files/files/bin/
 chmod 755 package/base-files/files/bin/coremark
 chmod 755 package/base-files/files/bin/coremark.sh
@@ -168,4 +168,6 @@ cp -f $GITHUB_WORKSPACE/configfiles/rk3568-nsy-g68-plus.dts target/linux/rockchi
 cp -f $GITHUB_WORKSPACE/configfiles/rk3568-nsy-g16-plus.dts target/linux/rockchip/dts/rk3568/rk3568-nsy-g16-plus.dts
 cp -f $GITHUB_WORKSPACE/configfiles/rk3568-bdy-g18-pro.dts target/linux/rockchip/dts/rk3568/rk3568-bdy-g18-pro.dts
 
+
+# 定时限速插件
 git clone --depth=1 https://github.com/sirpdboy/luci-app-eqosplus package/luci-app-eqosplus
