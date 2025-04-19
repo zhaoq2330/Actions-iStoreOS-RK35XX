@@ -95,9 +95,6 @@ chmod 755 package/base-files/files/etc/init.d/swconfig_install
 
 # 集成 nsy_g68-plus WiFi驱动
 mkdir -p package/base-files/files/lib/firmware/mediatek
-cp -f $GITHUB_WORKSPACE/configfiles/WirelessDriver/mt7615_cr4.bin package/base-files/files/lib/firmware/mediatek/mt7615_cr4.bin
-cp -f $GITHUB_WORKSPACE/configfiles/WirelessDriver/mt7615_n9.bin package/base-files/files/lib/firmware/mediatek/mt7615_n9.bin
-cp -f $GITHUB_WORKSPACE/configfiles/WirelessDriver/mt7615_rom_patch.bin package/base-files/files/lib/firmware/mediatek/mt7615_rom_patch.bin
 cp -f $GITHUB_WORKSPACE/configfiles/WirelessDriver/mt7916_eeprom.bin package/base-files/files/lib/firmware/mediatek/mt7916_eeprom.bin
 
 
@@ -136,7 +133,7 @@ echo -e "\\ndefine Device/nsy_g68-plus
   DEVICE_MODEL := G68
   DEVICE_DTS := rk3568-nsy-g68-plus
   SUPPORTED_DEVICES += nsy,g68-plus
-  DEVICE_PACKAGES := kmod-nvme kmod-scsi-core kmod-thermal kmod-switch-rtl8306 kmod-switch-rtl8366-smi kmod-switch-rtl8366rb kmod-switch-rtl8366s kmod-hwmon-pwmfan kmod-leds-pwm kmod-r8125 kmod-r8168 kmod-switch-rtl8367b swconfig kmod-swconfig
+  DEVICE_PACKAGES := kmod-nvme kmod-scsi-core kmod-thermal kmod-switch-rtl8306 kmod-switch-rtl8366-smi kmod-switch-rtl8366rb kmod-switch-rtl8366s kmod-hwmon-pwmfan kmod-leds-pwm kmod-r8125 kmod-r8168 kmod-switch-rtl8367b swconfig kmod-swconfig kmod-mt7916-firmware
 endef
 TARGET_DEVICES += nsy_g68-plus" >> target/linux/rockchip/image/rk35xx.mk
 
@@ -149,7 +146,7 @@ echo -e "\\ndefine Device/nsy_g16-plus
   DEVICE_MODEL := G16
   DEVICE_DTS := rk3568-nsy-g16-plus
   SUPPORTED_DEVICES += nsy,g16-plus
-  DEVICE_PACKAGES := kmod-nvme kmod-scsi-core kmod-thermal kmod-switch-rtl8306 kmod-switch-rtl8366-smi kmod-switch-rtl8366rb kmod-switch-rtl8366s kmod-hwmon-pwmfan kmod-leds-pwm kmod-r8125 kmod-r8168 kmod-switch-rtl8367b swconfig kmod-swconfig
+  DEVICE_PACKAGES := kmod-nvme kmod-scsi-core kmod-thermal kmod-switch-rtl8306 kmod-switch-rtl8366-smi kmod-switch-rtl8366rb kmod-switch-rtl8366s kmod-hwmon-pwmfan kmod-leds-pwm kmod-r8125 kmod-r8168 kmod-switch-rtl8367b swconfig kmod-swconfig kmod-mt7615-firmware
 endef
 TARGET_DEVICES += nsy_g16-plus" >> target/linux/rockchip/image/rk35xx.mk
 
@@ -162,7 +159,7 @@ echo -e "\\ndefine Device/bdy_g18-pro
   DEVICE_MODEL := G18
   DEVICE_DTS := rk3568-bdy-g18-pro
   SUPPORTED_DEVICES += bdy,g18-pro
-  DEVICE_PACKAGES := kmod-nvme kmod-scsi-core kmod-thermal kmod-switch-rtl8306 kmod-switch-rtl8366-smi kmod-switch-rtl8366rb kmod-switch-rtl8366s kmod-hwmon-pwmfan kmod-leds-pwm kmod-r8125 kmod-r8168 kmod-switch-rtl8367b swconfig kmod-swconfig
+  DEVICE_PACKAGES := kmod-nvme kmod-scsi-core kmod-thermal kmod-switch-rtl8306 kmod-switch-rtl8366-smi kmod-switch-rtl8366rb kmod-switch-rtl8366s kmod-hwmon-pwmfan kmod-leds-pwm kmod-r8125 kmod-r8168 kmod-switch-rtl8367b swconfig kmod-swconfig kmod-mt7615-firmware
 endef
 TARGET_DEVICES += bdy_g18-pro" >> target/linux/rockchip/image/rk35xx.mk
 
